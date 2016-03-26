@@ -45,7 +45,9 @@
     var ts = +new Date();
     require(requireConfig, ["transactions-ui/js/widgets/TxnDetailsModel"], function(mod) {
         var te = +new Date();
-        console.log("Loaded modules in " + (te - ts) + " ms.");
+        var msg = "Loaded modules in " + (te - ts) + " ms.";
+        console.log(msg);
+        document.write(msg);
     });
   </script>
 </body>
