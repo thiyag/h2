@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HTTP2 tests</title>
+  <script src="https://plugin-qbo.intuitcdn.net/qbo-ui/96.5.1/dojo/dojo.js"></script>
+  <script>
+    var requireConfig = {
+      baseUrl: "https://plugin-qbo.intuitcdn.net/qbo-ui/96.5.1/",
+      packages: [
+        { name: "qbo", location: "qbo" },
+        { name: "dojo", location: "dojo" },
+        { name: "dijit", location: "dijit" },
+        { name: "dojox", location: "dojox" },
+        { name: "util", location: "bower_components/util" },
+        { name: "underscore", location: "bower_components/underscore", main: "underscore" },
+        { name: "morpheus", location: "bower_components/morpheusjs/src" },
+        { name: "dcl", location: "bower_components/dcl" },
+        { name: "qbo-ui-libs-math", location: "bower_components/qbo-ui-libs-math/src" },
+        { name: "neo", location: "bower_components/qbo-ui-libs-neo/src" },
+        { name: "text", location: "bower_components/util/requirejs-text-adapter", main: "requirejs-text-adapter" },
+        { name: "requirejs-text", location: "bower_components/requirejs-text", main: "text" },
+        { name: "transactions-ui", location: "https://plugin-qbo.intuitcdn.net/transactions-ui/4.1.3/" }
+      ]
+    };
+
+    var qbo = {
+        companyL10nAttribs: {
+            currencyIsoCode: "USD"
+        },
+        ippAppEntitleMents: {},
+        ipd: {recommendations: {square: {enabled: false}}},
+        menus: [],
+        sku: {},
+        sitecatalyst: {enabled: false}
+    };
+
+    var neoContext = {
+        sitecatalyst: {}
+    };
+  </script>
+</head>
+<body>
+  <script>
+    var ts = +new Date();
+    require(requireConfig, ["transactions-ui/js/widgets/TxnDetailsModel"], function(mod) {
+        var te = +new Date();
+        console.log("Loaded modules in " + (te - ts) + " ms.");
+    });
+  </script>
+</body>
+</html>
