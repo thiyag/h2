@@ -7,7 +7,7 @@
   <script>
     var requireConfig = {
       packages: [
-        { name: "transactions-ui", location: "https://plugin-qbo-qa.intuitcdn.net/transactions-ui/4.1.3" }
+        { name: "integrations-banking-ui", location: "https://plugin-qbo-qa.intuitcdn.net/integrations-banking-ui/177/" }
       ]
     };
 
@@ -15,7 +15,7 @@
         companyL10nAttribs: {
             currencyIsoCode: "USD"
         },
-        ippAppEntitleMents: {},
+        ippAppEntitlements: { hasBeenIntializedWithSubscriptionInfo: true },
         ipd: {recommendations: {square: {enabled: false}}},
         menus: [],
         sku: {},
@@ -30,7 +30,7 @@
 <body>
   <script>
     var ts = +new Date();
-    require(requireConfig, ["transactions-ui/js/widgets/TxnDetailsModel"], function(mod) {
+    require(requireConfig, ["integrations-banking-ui/js/dtx/grid/DTXGrid"], function(mod) {
         var te = +new Date();
         var msg = "Loaded modules in " + (te - ts) + " ms.";
         console.log(msg);
